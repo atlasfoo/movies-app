@@ -25,9 +25,13 @@ const animations = createAnimations({
   },
 })
 
-const headingFont = createInterFont()
+const headingFont = createInterFont({
+  family: 'Montserrat',
+})
 
-const bodyFont = createInterFont()
+const bodyFont = createInterFont({
+  family: 'Montserrat',
+})
 
 export const Container = styled(YStack, {
   flex: 1,
