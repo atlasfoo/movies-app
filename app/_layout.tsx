@@ -1,11 +1,13 @@
 import { useFonts } from 'expo-font'
-import { SplashScreen, Stack } from 'expo-router'
+import { Slot, SplashScreen } from 'expo-router'
 import { useEffect } from 'react'
-import { TamaguiProvider } from 'tamagui'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { TamaguiProvider, Theme } from 'tamagui'
 
 import config from '../tamagui.config'
 
 export default function Layout() {
+  // #region fonts
   const [loaded] = useFonts({
     Montserrat: require('../assets/fonts/ttf/Montserrat-Regular.ttf'),
     MontserratBold: require('../assets/fonts/ttf/Montserrat-Bold.ttf'),
@@ -27,6 +29,8 @@ export default function Layout() {
     MontserratMediumItalic: require('../assets/fonts/ttf/Montserrat-MediumItalic.ttf'),
   })
 
+  // #endregion
+
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync()
@@ -37,7 +41,11 @@ export default function Layout() {
 
   return (
     <TamaguiProvider config={config}>
-      <Stack />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Theme name="blue">
+          <Slot />
+        </Theme>
+      </GestureHandlerRootView>
     </TamaguiProvider>
   )
 }
