@@ -27,10 +27,16 @@ const animations = createAnimations({
 
 const headingFont = createInterFont({
   family: 'Montserrat',
+  face: {
+    700: { normal: 'MontserratBold' },
+  },
 })
 
 const bodyFont = createInterFont({
   family: 'Montserrat',
+  face: {
+    700: { normal: 'MontserratBold' },
+  },
 })
 
 export const Container = styled(YStack, {
@@ -47,6 +53,7 @@ export const Main = styled(YStack, {
 export const Title = styled(H1, {
   color: '#000',
   size: '$12',
+  fontWeight: '700',
 })
 
 export const Subtitle = styled(SizableText, {

@@ -21,6 +21,8 @@ const FavoritesLayout = () => {
           headerLeft: () => <DrawerToggleButton tintColor="#fff" />,
         }}
       />
+      <Stack.Screen name="movie/[id]" options={{ title: '' }} />
+      <Stack.Screen name="tv/[id]" options={{ title: '' }} />
     </Stack>
   )
 }

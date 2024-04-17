@@ -1,10 +1,12 @@
+import { QueryClientProvider } from '@tanstack/react-query'
 import { useFonts } from 'expo-font'
 import { Slot, SplashScreen } from 'expo-router'
 import { useEffect } from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { TamaguiProvider, Theme } from 'tamagui'
 
-import config from '../tamagui.config'
+import { queryClient } from '~/services/query-client'
+import config from '~/tamagui.config'
 
 export default function Layout() {
   // #region fonts
@@ -42,9 +44,11 @@ export default function Layout() {
   return (
     <TamaguiProvider config={config}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <Theme name="blue">
-          <Slot />
-        </Theme>
+        <QueryClientProvider client={queryClient}>
+          <Theme name="blue">
+            <Slot />
+          </Theme>
+        </QueryClientProvider>
       </GestureHandlerRootView>
     </TamaguiProvider>
   )
