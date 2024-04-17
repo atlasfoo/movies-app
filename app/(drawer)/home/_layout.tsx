@@ -6,7 +6,7 @@ export const unstable_settings = {
   initialRouteName: 'index',
 }
 
-const FavoritesLayout = () => {
+const HomeLayout = () => {
   const { blue7 } = useTheme()
 
   return (
@@ -31,4 +31,4 @@ const FavoritesLayout = () => {
   )
 }
 
-export default FavoritesLayout
+export default HomeLayout

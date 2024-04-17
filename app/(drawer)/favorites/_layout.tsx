@@ -1,7 +1,44 @@
+import { DrawerToggleButton } from '@react-navigation/drawer'
 import { Stack } from 'expo-router'
+import { useTheme } from 'tamagui'
 
-const HomeLayout = () => {
-  return <Stack></Stack>
+export const unstable_settings = {
+  initialRouteName: 'index',
 }
 
-export default HomeLayout
+const FavoritesLayout = () => {
+  const theme = useTheme()
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.blue7.get(),
+        },
+        headerTintColor: '#fff',
+      }}>
+      <Stack.Screen
+        name="index"
+        options={{
+          title: 'My Favorites',
+          headerLeft: () => <DrawerToggleButton tintColor="#fff" />,
+        }}
+      />
+      <Stack.Screen
+        name="movie/[id]"
+        options={{
+          title: '',
+          headerBackTitle: 'Back',
+        }}
+      />
+      <Stack.Screen
+        name="tv/[id]"
+        options={{
+          title: '',
+          headerBackTitle: 'Back',
+        }}
+      />
+    </Stack>
+  )
+}
+
+export default FavoritesLayout

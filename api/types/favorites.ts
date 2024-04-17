@@ -1,4 +1,4 @@
-import { MediaType } from '@/interfaces/apiresults'
+import { MediaType } from './api-contracts'
 
 export type Favorite = {
   id: string
