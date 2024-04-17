@@ -1,14 +1,11 @@
 import { useLocalSearchParams } from 'expo-router'
-import { View, Text } from 'react-native'
 
-const MoviePage = () => {
-  const { id } = useLocalSearchParams()
+import { MediaType } from '~/api/types/api-contracts'
+import DetailsPage from '~/components/DetailsPage'
 
-  return (
-    <View>
-      <Text>MoviePage - {id}</Text>
-    </View>
-  )
+const Page = () => {
+  const { id } = useLocalSearchParams<{ id: string }>()
+
+  return <DetailsPage id={id} mediaType={MediaType.Movie} />
 }
-
-export default MoviePage
+export default Page
